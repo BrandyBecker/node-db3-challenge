@@ -4,6 +4,7 @@ const Schemes = require('./scheme-model.js');
 
 const router = express.Router();
 
+//GET /
 router.get('/', (req, res) => {
   Schemes.find()
   .then(schemes => {
@@ -14,6 +15,7 @@ router.get('/', (req, res) => {
   });
 });
 
+//GET /:id
 router.get('/:id', (req, res) => {
   const { id } = req.params;
 
@@ -30,6 +32,7 @@ router.get('/:id', (req, res) => {
   });
 });
 
+//GET /:id/steps
 router.get('/:id/steps', (req, res) => {
   const { id } = req.params;
 
@@ -46,6 +49,7 @@ router.get('/:id/steps', (req, res) => {
   });
 });
 
+//POST /
 router.post('/', (req, res) => {
   const schemeData = req.body;
 
@@ -58,6 +62,7 @@ router.post('/', (req, res) => {
   });
 });
 
+//POST /:id/steps
 router.post('/:id/steps', (req, res) => {
   const stepData = req.body;
   const { id } = req.params; 
@@ -78,6 +83,7 @@ router.post('/:id/steps', (req, res) => {
   });
 });
 
+//PUT /:id
 router.put('/:id', (req, res) => {
   const { id } = req.params;
   const changes = req.body;
@@ -98,6 +104,7 @@ router.put('/:id', (req, res) => {
   });
 });
 
+//DELETE /:id
 router.delete('/:id', (req, res) => {
   const { id } = req.params;
 
